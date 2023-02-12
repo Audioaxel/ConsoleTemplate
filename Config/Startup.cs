@@ -3,8 +3,6 @@ using Microsoft.Extensions.DependencyInjection;
 
 public class Startup
 {
-    public IConfiguration Configuration { get; init; }
-
     public Startup()
     {
         var builder = new ConfigurationBuilder()
@@ -13,6 +11,9 @@ public class Startup
 
         Configuration = builder.Build();
     }
+
+    public IConfiguration Configuration { get; init; }
+    
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddSingleton(Configuration);
